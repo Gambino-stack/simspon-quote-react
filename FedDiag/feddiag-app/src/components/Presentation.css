@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;700&display=swap');
+
+:root {
+    --primary-color: #170082;
+}
+
+h1{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14pt;
+    font-weight: 200;
+    line-height: 1.6;
+}
+
+.diag {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.consign {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14pt;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
