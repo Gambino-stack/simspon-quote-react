@@ -38,7 +38,7 @@ export default function FormDiag () {
         }
 
         data.imc = imc();
-        data.aliments = document.getElementsByClassName('dropdown-heading-value')[0].innerText;
+        //data.aliments = document.getElementsByClassName('dropdown-heading-value')[0].innerText;
         console.log(data)
     }
 
@@ -65,7 +65,7 @@ export default function FormDiag () {
                     <b>Oups ! Il semblerait qu'il y ait quelques erreurs 😅</b>
                     </div> : isSubmitSuccessful && <div className="alert alert-success">Le questionnaire nous a bien été soumis ✅ merci pour votre confiance </div>}
                     <form onSubmit={handleSubmit(onSubmit)}>
-                    <GenderChoice name="sexe" className={!errors.sexe ?"form-control" : "form-control is-invalid" } value={register({required : 'Veuillez séléctionner votre genre svp'})}/>
+                    <GenderChoice name="sexe" className={!errors.sexe ?"form-control" : "form-control is-invalid"} value={register({required : 'Veuillez séléctionner votre genre svp'})}/>
                     {errors.sexe &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.sexe.message}</span>}
                     <Field name="name" className={!errors.name ?"form-control" : "form-control is-invalid" } label="Nom"  value={register({required : 'Vous devez entrer votre nom svp'})} placeholder="Entrez votre nom "/>
                     {errors.name &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.name.message}</span>}
@@ -77,9 +77,9 @@ export default function FormDiag () {
                     {errors.age &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.age.message}</span>}
                     <SelectSituation name="situation" className={!errors.situation ?"form-control" : "form-control is-invalid" } value={register({required : 'Veuillez selectionner une situation svp'})}/>
                     {errors.situation &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.situation.message}</span>}
-                    <NumberField name="weight" className={!errors.weight ?"form-control" : "form-control is-invalid" } value={register({required : 'Veuillez entrer un poids svp'})} children="Poids (en kgs)" placeholder="Merci d'entrer votre poids" />
+                    <NumberField name="weight" className={!errors.weight ?"form-control" : "form-control is-invalid" } value={register({required : 'Veuillez entrer un poids svp', maxLength: 3})} children="Poids (en kgs)" placeholder="Merci d'entrer votre poids" />
                     {errors.weight &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.weight.message}</span>}
-                    <NumberField name="height" className={!errors.height ?"form-control" : "form-control is-invalid" } value={register({required : 'Veuillez entrer une taille svp'})} children="Taille (en cms)" placeholder="Merci d'entrer votre taille" />
+                    <NumberField name="height" className={!errors.height ?"form-control" : "form-control is-invalid" } value={register({required : 'Veuillez entrer une taille svp',minLength: 3, maxLength: 3})} children="Taille (en cms)" placeholder="Merci d'entrer votre taille" />
                     {errors.height &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.height.message}</span>}
                     <div className="form-group">
                     <label htmlFor="imc">Indice de Masse Corporelle (IMC)</label>
@@ -125,7 +125,7 @@ export default function FormDiag () {
                     {errors.eighteen &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.eighteen.message}</span>}
                     <QuestionsYale name="ninetheen" className={!errors.ninetheen ?"form-control" : "form-control is-invalid" } label="19. Mon alimentation excessive m’a empêché(e) de m’occuper correctement de ma famille ou de faire des tâches ménagères." value={register({required: 'Vous devez répondre à la question 19'})}/>
                     {errors.ninetheen &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.ninetheen.message}</span>}
-                    <QuestionsYale name="twenty" className={!errors.twenty ?"form-control" : "form-control is-invalid" } label="20. J’ai évité des opportunités professionnelles ou relationnelles parce que je ne pouvais pas manger certains aliments dans ces situations " value={register({required: 'Vous devez répondre à la question 20'})}/>
+                    <QuestionsYale name="twenty" className={!errors.twenty ?"form-control" : "form-control is-invalid" } label="20. J’ai évité des opportunités professionnelles ou relationnelles parce que je ne pouvais pas manger certains aliments dans ces situations" value={register({required: 'Vous devez répondre à la question 20'})}/>
                     {errors.twenty &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.twenty.message}</span>}
                     <QuestionsYale name="twentyone" className={!errors.twentyone ? "form-control" : "form-control is-invalid" } label="21. J’ai évité certaines activités sociales car dans ces situations, certaines personnes n’étaient pas d’accord avec la quantité de nourriture que je pouvais manger." value={register({required: 'Vous devez répondre à la question 21'})} />
                     {errors.twentyone &&<span className="error text-danger"><span className="mr-2">👉🏼</span>{errors.twentyone.message}</span>}
